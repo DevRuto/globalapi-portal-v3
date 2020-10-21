@@ -1,5 +1,7 @@
 # globalapi-portal
 
+![Build](https://github.com/KZGlobalTeam/globalapi-portal-v3/workflows/ci/badge.svg)
+
 ## Build Setup
 
 ```bash
