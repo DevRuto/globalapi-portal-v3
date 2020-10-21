@@ -1,6 +1,6 @@
 # globalapi-portal
 
-![Build](https://github.com/KZGlobalTeam/globalapi-portal-v3/workflows/ci/badge.svg)
+![Build](https://github.com/KZGlobalTeam/globalapi-portal-v3/workflows/build/badge.svg)
 
 ## Build Setup
 
