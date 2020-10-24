@@ -1,18 +1,20 @@
 <template>
   <div class="container">
     <div>
-        <n-link to="/dashboard">HERE</n-link>
-      </div>
+      <n-link to="/dashboard">
+        HERE
+      </n-link>
     </div>
+  </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   layout: 'empty'
-})
+});
 </script>
 
 <style>
