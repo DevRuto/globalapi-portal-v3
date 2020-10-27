@@ -7,12 +7,16 @@
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
       <a href="#" class="text-lg font-semibold tracking-widest uppercase">GlobalAPI Portal</a>
     </div>
-    <hr/>
+    <hr>
     <nav class="flex-grow block pb-0 overflow-y-auto">
       <n-link
         v-for="nav of navItems"
         :key="nav.name"
-        class="block px-4 py-2 hover:bg-red-600" :to="nav.path">{{ nav.name }}</n-link>
+        class="block px-4 py-2 hover:bg-red-600"
+        :to="nav.path"
+      >
+        {{ nav.name }}
+      </n-link>
     </nav>
   </aside>
 </template>
@@ -27,7 +31,7 @@ export default Vue.extend({
       required: true
     }
   },
-  data() {
+  data () {
     return {
       navItems: [
         {
@@ -45,9 +49,9 @@ export default Vue.extend({
         {
           path: '#bans',
           name: 'Bans'
-        },
+        }
       ]
-    }
+    };
   }
 });
 </script>
