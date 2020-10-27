@@ -3,6 +3,11 @@
 ![Build](https://github.com/KZGlobalTeam/globalapi-portal-v3/workflows/build/badge.svg)
 ![GH Pages](https://github.com/KZGlobalTeam/globalapi-portal-v3/workflows/gh-pages/badge.svg)
 
+
+## Preview
+[https://devruto.github.io/globalapi-portal-v3/dashboard](https://devruto.github.io/globalapi-portal-v3/dashboard)
+
+
 ## Build Setup
 
 ```bash
