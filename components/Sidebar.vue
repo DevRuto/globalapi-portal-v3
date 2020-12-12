@@ -1,11 +1,11 @@
 <template>
   <aside
     class="flex flex-col flex-shrink-0 transform top-0 left-0 w-64 bg-gray-600 absolute h-full overflow-auto ease-in-out transition-all duration-200"
-    :class="value ? 'translate-x-0' : '-translate-x-full'"
+    :class="value ? 'lg:translate-x-0' : 'lg:translate-x-0 -translate-x-full'"
   >
     <div class="h-16" />
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-      <a href="#" class="text-lg font-semibold tracking-widest uppercase">GlobalAPI Portal</a>
+      <span class="text-lg font-semibold tracking-widest uppercase">GlobalAPI Portal</span>
     </div>
     <hr>
     <nav class="flex-grow block pb-0 overflow-y-auto">
