@@ -1,7 +1,7 @@
 <template>
   <div class="lg:static absolute lg:w-64 w-full">
     <aside
-      class="flex flex-col transform lg:w-64 h-full bg-gray-700 ease-in-out transition-all duration-200 py-4"
+      class="flex flex-col transform lg:w-64 h-full bg-gray-700 ease-in-out transition-all duration-200 pb-2"
       :class="value ? 'translate-y-0' : 'lg:translate-y-0 -translate-y-full'"
     >
       <p class="flex flex-row flex-shrink-0 text-2xl font-semibold tracking-widest uppercase text-white px-4 py-2 mx-auto">Dashboard</p>
