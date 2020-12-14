@@ -1,9 +1,10 @@
 <template>
-  <nav class="flex fixed w-full items-center justify-between bg-gray-800 text-white h-16 px-6 z-40">
+  <nav class="flex items-center justify-between h-16 px-6 z-40 bg-gray-800 text-white">
     <div class="flex items-center">
       <button type="button" class="lg:hidden block text-gray-500 hover:text-white focus:text-white focus:outline-none" @click="$emit('sidebar-toggle')">
         <Hamburger v-model="value" />
       </button>
+      <span class="text-white text-2xl font-semibold tracking-widest pl-2 mx-auto">GlobalAPI</span>
     </div>
     <div class="flex items-center">
       <button type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">

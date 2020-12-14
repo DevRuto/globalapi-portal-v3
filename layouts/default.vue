@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
-    <Sidebar v-model="isOpen" />
-    <div class="lg:container lg:mx-auto">
-      <Nuxt />
+    <div class="flex flex-grow">
+      <Sidebar v-model="isOpen" />
+      <div class="flex-grow">
+        <Nuxt />
+      </div>
     </div>
   </div>
 </template>
@@ -41,5 +43,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(92, 92, 92);
 }
 </style>

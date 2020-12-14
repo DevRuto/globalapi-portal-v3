@@ -1,18 +1,15 @@
 <template>
   <aside
-    class="flex flex-col flex-shrink-0 transform top-0 left-0 w-64 bg-gray-600 absolute h-full overflow-auto ease-in-out transition-all duration-200"
+    class="flex flex-col transform bg-gray-700 w-64 ease-in-out transition-all duration-200"
     :class="value ? 'lg:translate-x-0' : 'lg:translate-x-0 -translate-x-full'"
   >
-    <div class="h-16" />
-    <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-      <span class="text-lg font-semibold tracking-widest uppercase">GlobalAPI Portal</span>
-    </div>
-    <hr>
+    <p class="flex flex-row flex-shrink-0 text-2xl font-semibold tracking-widest uppercase text-white px-4 py-2 mx-auto">Dashboard</p>
+    <hr class="mx-4 border-gray-600">
     <nav class="flex-grow block pb-0 overflow-y-auto">
       <n-link
         v-for="nav of navItems"
         :key="nav.name"
-        class="block px-4 py-2 hover:bg-red-600"
+        class="block pl-6 py-3 text-gray-200 font-semibold text-md antialiased transition duration-300 hover:bg-gray-600"
         :to="nav.path"
       >
         {{ nav.name }}
