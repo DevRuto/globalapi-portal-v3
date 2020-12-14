@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
-    <div class="flex flex-grow">
+    <div class="lg:flex lg:flex-grow">
       <Sidebar v-model="isOpen" />
-      <div class="flex-grow">
+      <div class="lg:flex-grow">
         <Nuxt />
       </div>
     </div>
