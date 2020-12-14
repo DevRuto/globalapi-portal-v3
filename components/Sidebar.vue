@@ -4,7 +4,9 @@
       class="flex flex-col transform lg:w-64 h-full bg-gray-700 ease-in-out transition-all duration-200 pb-2"
       :class="value ? 'translate-y-0' : 'lg:translate-y-0 -translate-y-full'"
     >
-      <p class="flex flex-row flex-shrink-0 text-2xl font-semibold tracking-widest uppercase text-white px-4 py-2 mx-auto">Dashboard</p>
+      <p class="flex flex-row flex-shrink-0 text-2xl font-semibold tracking-widest uppercase text-white px-4 py-2 mx-auto">
+        Dashboard
+      </p>
       <hr class="mx-4 border-gray-600">
       <nav class="flex-grow block pb-0 overflow-y-auto">
         <n-link
