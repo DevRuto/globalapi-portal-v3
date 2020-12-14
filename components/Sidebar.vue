@@ -1,7 +1,7 @@
 <template>
   <aside
     class="flex flex-col transform bg-gray-700 w-64 ease-in-out transition-all duration-200"
-    :class="value ? 'lg:translate-x-0' : 'lg:translate-x-0 -translate-x-full'"
+    :class="value ? 'translate-x-0' : '-translate-x-full'"
   >
     <p class="flex flex-row flex-shrink-0 text-2xl font-semibold tracking-widest uppercase text-white px-4 py-2 mx-auto">Dashboard</p>
     <hr class="mx-4 border-gray-600">
