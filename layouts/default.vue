@@ -3,8 +3,10 @@
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
     <div class="lg:flex lg:flex-grow">
       <Sidebar v-model="isOpen" />
-      <div class="lg:flex-grow p-2">
-        <Nuxt />
+      <div class="lg:flex-grow p-4">
+        <Breadcrumb />
+        <hr class="mx-4 border-gray-600">
+        <Nuxt class="px-4" />
       </div>
     </div>
   </div>
@@ -12,9 +14,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Breadcrumb from '~/components/Breadcrumb.vue';
 import Navbar from '~/components/Navbar.vue';
+
 export default Vue.extend({
   components: {
+    Breadcrumb,
     Navbar
   },
   data () {
@@ -46,6 +51,6 @@ html {
 }
 
 body {
-  background-color: rgb(92, 92, 92);
+  background-color: rgb(24, 24, 24);
 }
 </style>
