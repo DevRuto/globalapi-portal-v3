@@ -19,6 +19,12 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="inline w-full text-white">
+      <button @click="prevPage" type="button" class="px-2 rounded border border-blue-200 bg-blue-600">Back</button>
+      <button @click="nextPage" type="button" class="px-2 rounded border border-blue-200 bg-blue-600">Next</button>
+      <span class="px-2">{{ start }} - {{ maps.length }}</span>
+    </div>
   </div>
 </template>
 
@@ -36,17 +42,28 @@ export default Vue.extend({
   },
   computed: {
     paginatedMaps: function(): any[] {
+      console.log('[Maps pagination] Start: %i, Count: %i', this.start, this.count);
       return this.maps.slice(this.start, this.start + this.count);
     }
   },
-  async mounted() {
-    this.maps = await this.getMaps();
-    console.log(this.maps);
+  mounted() {
+    this.loadMaps();
   },
   methods: {
-    getMaps() {
-      const url = `${API_HOST}/api/v2.0/maps?is_validated=true`;
-      return this.$axios.$get(url);
+    async loadMaps() {
+      const params = new URLSearchParams();
+      params.set('is_validated', 'true');
+      params.set('offset', '0');
+      params.set('limit', '999');
+      const url = `${API_HOST}/api/v2.0/maps`;
+      this.maps = await this.$axios.$get(url, { params });
+      console.log(this.maps);
+    },
+    nextPage() {
+      this.start = Math.min(this.start + this.count, this.maps.length);
+    },
+    prevPage() {
+      this.start = Math.max(this.start - this.count, 0);
     }
   }
 })
