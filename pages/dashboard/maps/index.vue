@@ -1,6 +1,6 @@
 <template>
   <div>
-    <data-table class="table mx-auto md:w-full" v-model="maps" />
+    <data-table v-model="maps" class="table mx-auto md:w-full" />
   </div>
 </template>
 

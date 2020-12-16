@@ -28,11 +28,11 @@
 
     <div class="flex justify-end mx-auto text-white">
       <span class="px-2">{{ start }} - {{ value.length }}</span>
-      <select v-model="count" class="text-black">
-        <option v-for="option in countOptions" :key="option.value" :value="option.value">
-          {{ option.text }}
-        </option>
-      </select>
+      <dropdown
+        v-model="count"
+        :items="countOptions"
+        class="text-black dark:text-white"
+      />
       <button type="button" class="px-2 mx-2 rounded border border-blue-200 bg-blue-600" @click="prevPage">
         Back
       </button>
@@ -45,6 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import Dropdown from '@/components/Dropdown.vue';
 
 const difficultyLabels = [
   'Very Easy',
@@ -57,6 +58,9 @@ const difficultyLabels = [
 ];
 
 export default Vue.extend({
+  components: {
+    Dropdown
+  },
   props: {
     value: {
       type: Array,
@@ -89,7 +93,7 @@ export default Vue.extend({
     prevPage () {
       this.start = Math.max(this.start - this.count, 0);
     },
-    getDifficultyText(difficulty: number) {
+    getDifficultyText (difficulty: number) {
       return difficultyLabels[difficulty - 1];
     }
   }
