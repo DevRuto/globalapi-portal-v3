@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col min-h-screen dark:bg-gray-900">
+  <div class="flex flex-col min-h-screen">
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
     <div class="lg:flex lg:flex-grow">
       <Sidebar v-model="isOpen" />

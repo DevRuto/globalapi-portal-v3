@@ -1,6 +1,6 @@
 <template>
   <div>
-    <data-table v-model="maps" class="table mx-auto" />
+    <data-table class="table mx-auto md:w-full" v-model="maps" />
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default Vue.extend({
       const params = new URLSearchParams();
       params.set('is_validated', 'true');
       params.set('offset', '0');
-      params.set('limit', '999');
+      params.set('limit', '9999');
       const url = `${API_HOST}/api/v2.0/maps`;
       this.maps = await this.$axios.$get(url, { params });
       console.log(this.maps);
@@ -37,6 +37,6 @@ export default Vue.extend({
 
 <style scoped>
 .table {
-  width: 964px;
+  max-width: 1280px;
 }
 </style>
