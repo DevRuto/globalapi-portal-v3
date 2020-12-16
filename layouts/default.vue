@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen dark:bg-gray-900">
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
     <div class="lg:flex lg:flex-grow">
       <Sidebar v-model="isOpen" />
@@ -48,9 +48,5 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-}
-
-body {
-  background-color: rgb(24, 24, 24);
 }
 </style>
