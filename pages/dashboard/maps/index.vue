@@ -1,17 +1,17 @@
 <template>
   <div>
-    <data-table v-model="maps" class="table mx-auto md:w-full" />
+    <map-table v-model="maps" class="table mx-auto md:w-full" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import DataTable from '@/components/DataTable.vue';
+import MapTable from '@/components/MapTable.vue';
 import { API_HOST } from '@/app.config';
 
 export default Vue.extend({
   components: {
-    DataTable
+    MapTable
   },
   data () {
     return {
