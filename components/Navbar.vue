@@ -7,7 +7,9 @@
       <span class="text-white text-2xl font-semibold tracking-widest pl-2 mx-auto">GlobalAPI</span>
     </div>
     <div class="flex items-center">
-      <button type="button" @click="toggleTheme" class="block text-white border rounded bg-gray-800 px-4 mr-4">Theme</button>
+      <button type="button" class="block text-white border rounded bg-gray-800 px-4 mr-4" @click="toggleTheme">
+        Theme
+      </button>
       <button type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
         Login
       </button>
@@ -35,16 +37,16 @@ export default Vue.extend({
       isOpen: false
     };
   },
-  mounted() {
+  mounted () {
     if (localStorage.theme === 'dark') {
-      document?.querySelector('html')?.classList.add('dark')
+      document?.querySelector('html')?.classList.add('dark');
     }
   },
   methods: {
-    toggleTheme() {
+    toggleTheme () {
       console.log(localStorage.theme);
       if (localStorage.theme === 'dark') {
-        document?.querySelector('html')?.classList.remove('dark')
+        document?.querySelector('html')?.classList.remove('dark');
         localStorage.removeItem('theme');
       } else {
         document?.querySelector('html')?.classList.add('dark');

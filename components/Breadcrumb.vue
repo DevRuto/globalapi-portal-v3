@@ -18,12 +18,12 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data() {
+  data () {
     return {
       breadcrumbs: [] as any[]
     };
   },
-  mounted() {
+  mounted () {
     const breadcrumbs = [] as any[];
     const routes = this.$route.path.split('/')
       .filter(v => v)

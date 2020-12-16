@@ -1,7 +1,6 @@
 <template>
   <div>
-
-    <data-table class="table mx-auto" v-model="maps" />
+    <data-table v-model="maps" class="table mx-auto" />
   </div>
 </template>
 
@@ -14,16 +13,16 @@ export default Vue.extend({
   components: {
     DataTable
   },
-  data() {
+  data () {
     return {
       maps: []
-    }
+    };
   },
-  mounted() {
+  mounted () {
     this.loadMaps();
   },
   methods: {
-    async loadMaps() {
+    async loadMaps () {
       const params = new URLSearchParams();
       params.set('is_validated', 'true');
       params.set('offset', '0');
@@ -33,7 +32,7 @@ export default Vue.extend({
       console.log(this.maps);
     }
   }
-})
+});
 </script>
 
 <style scoped>
