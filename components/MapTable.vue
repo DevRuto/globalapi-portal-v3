@@ -2,18 +2,47 @@
   <div>
     <div class="table-fixed text-black dark:text-white mx-auto my-4">
       <div class="flex flex-col w-full border border-gray-600">
-        <div class="flex">
-          <span class="w-1/12 px-2 py-1">ID</span>
-          <span class="w-3/12 px-2 py-1">Name</span>
-          <span class="w-2/12 px-2 py-1">Filesize</span>
-          <span class="w-2/12 px-2 py-1">Difficulty</span>
-          <span class="w-1/12 px-2 py-1">Validated</span>
-          <span class="w-3/12 px-2 py-1">Created</span>
+        <div class="flex cursor-pointer select-none">
+          <span class="w-1/12 px-2 py-1 flex" @click="sortTable('id')">
+            ID
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg>
+          </span>
+          <span class="w-3/12 px-2 py-1 flex" @click="sortTable('name')">
+            Name
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg></span>
+          <span class="w-2/12 px-2 py-1 flex" @click="sortTable('filesize')">
+            Filesize
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg>
+          </span>
+          <span class="w-2/12 px-2 py-1 flex" @click="sortTable('difficulty')">
+            Difficulty
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg>
+          </span>
+          <span class="w-1/12 px-2 py-1 flex" @click="sortTable('is_validated')">
+            Global
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg>
+          </span>
+          <span class="w-3/12 px-2 py-1 flex" @click="sortTable('created_on')">
+            Created
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 12a1 1 0 102 0V6.414l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L5 6.414V12zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
+            </svg>
+          </span>
         </div>
         <div
           v-for="(map, i) of paginatedValue"
           :key="i"
-          class="flex hover:bg-purple-200 hover:dark:bg-purple-900"
+          class="flex hover:bg-purple-200 dark:hover:bg-purple-800"
           :class="i % 2 == 0 ? 'bg-gray-200 dark:bg-gray-800' : 'bg-gray-100 dark:bg-gray-900'"
         >
           <span class="w-1/12 px-2 py-1">{{ map.id }}</span>
@@ -31,6 +60,7 @@
         v-model="count"
         :items="countOptions"
         class="text-black dark:text-white px-2 mx-2"
+        @input="saveCount"
       />
       <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
         Back
@@ -73,16 +103,38 @@ export default Vue.extend({
       countOptions: [
         { text: '5', value: 5 },
         { text: '10', value: 10 },
-        { text: '25', value: 25 },
+        { text: '20', value: 20 },
         { text: '50', value: 50 },
         { text: 'All', value: 9999 }
-      ]
+      ],
+      sort: ''
     };
   },
   computed: {
     paginatedValue (): any[] {
       console.log('[Maps pagination] Start: %i, Count: %i', this.start, this.count);
-      return this.value.slice(this.start, this.start + this.count);
+      let maps = [...this.value];
+      if (!!this.sort) {
+        const index = this.sort.indexOf(':');
+        const col = this.sort.substring(0, index);
+        const direction = this.sort.substring(index + 1) == 'asc' ? 1 : -1;
+        maps.sort((a: any, b: any) => {
+          const varType = typeof a[col];
+          let retVal = 0;
+          if (varType === 'number') {
+            retVal = (a[col] - b[col]) * direction;
+          } else if (typeof varType === 'string') {
+            retVal = a[col].localeCompare(b[col]) * direction;
+          }
+          return retVal;
+        });
+      }
+      return maps.slice(this.start, this.start + this.count);
+    }
+  },
+  mounted () {
+    if (localStorage.mapcount) {
+      this.count = parseInt(localStorage.mapcount);
     }
   },
   methods: {
@@ -94,6 +146,21 @@ export default Vue.extend({
     },
     getDifficultyText (difficulty: number) {
       return difficultyLabels[difficulty - 1];
+    },
+    saveCount () {
+      localStorage.setItem('mapcount', this.count.toString());
+    },
+    sortTable(col: string) {
+      console.log(`${this.sort} - ${col}`);
+      if (this.sort.substring(0, this.sort.indexOf(':')) == col) {
+        if (this.sort.indexOf(':asc') > 0) {
+          this.sort = `${col}:desc`;
+        } else {
+          this.sort = `${col}:asc`;
+        }
+      } else {
+        this.sort = `${col}:asc`;
+      }
     }
   }
 });
