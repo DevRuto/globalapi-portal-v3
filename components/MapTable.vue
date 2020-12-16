@@ -1,6 +1,23 @@
 <template>
   <div>
     <div class="table-fixed text-black dark:text-white mx-auto my-4">
+      <div class="flex justify-end mx-auto text-white my-2">
+        <label for="count" class="text-black dark:text-white">Per page</label>
+        <select
+          id="count"
+          v-model="count"
+          class="text-black dark:text-white dark:bg-black border border-gray-600 rounded px-2 mx-2"
+          @change="saveCount"
+        >
+          <option v-for="option in countOptions" :key="option.value" :value="option.value">{{ option.text }}</option>
+        </select>
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
+          Back
+        </button>
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
+          Next
+        </button>
+      </div>
       <div class="flex flex-col w-full border border-gray-600">
         <div class="flex cursor-pointer select-none">
           <span class="w-1/12 px-2 py-1 flex" @click="sortTable('id')">
@@ -50,31 +67,16 @@
           <span class="w-2/12 px-2 py-1">{{ map.filesize.toLocaleString() }}</span>
           <span class="w-2/12 px-2 py-1">{{ map.difficulty }} - {{ getDifficultyText(map.difficulty) }}</span>
           <span class="w-1/12 px-2 py-1">{{ map.validated }}</span>
-          <span class="w-3/12 px-2 py-1">{{ map.created_on }}</span>
+          <span class="w-auto px-2 py-1">{{ map.created_on }}</span>
+          <span class="w-1/12 px-2 py-1 text-center text-blue-400"><n-link to="#">Edit</n-link></span>
         </div>
       </div>
-    </div>
-
-    <div class="flex justify-end mx-auto text-white">
-      <dropdown
-        v-model="count"
-        :items="countOptions"
-        class="text-black dark:text-white px-2 mx-2"
-        @input="saveCount"
-      />
-      <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
-        Back
-      </button>
-      <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
-        Next
-      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import Dropdown from '@/components/Dropdown.vue';
 
 const difficultyLabels = [
   'Very Easy',
@@ -87,9 +89,6 @@ const difficultyLabels = [
 ];
 
 export default Vue.extend({
-  components: {
-    Dropdown
-  },
   props: {
     value: {
       type: Array,
@@ -107,7 +106,8 @@ export default Vue.extend({
         { text: '50', value: 50 },
         { text: 'All', value: 9999 }
       ],
-      sort: ''
+      sort: '',
+      admin: true
     };
   },
   computed: {
