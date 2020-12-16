@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen">
     <Navbar v-model="isOpen" @sidebar-toggle="isOpen = !isOpen" />
     <div class="lg:flex lg:flex-grow">
-      <Sidebar v-model="isOpen" />
+      <Sidebar v-model="isOpen" :class="isOpen ? 'z-50' : 'hide'" />
       <div class="lg:flex-grow p-4">
         <Breadcrumb />
         <hr class="mx-4 border-gray-600">
@@ -48,5 +48,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.hide {
+  z-index: -1;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="min-w-screen overflow-x-visible">
     <div class="table-fixed text-black dark:text-white mx-auto my-4">
-      <div class="flex justify-end mx-auto text-white my-2">
-        <label for="count" class="text-black dark:text-white">Per page</label>
+      <div class="flex justify-end mx-auto text-white my-2 h-6">
+        <label for="count" class="text-black dark:text-white text-sm">Per page</label>
         <select
           id="count"
           v-model="count"
@@ -19,7 +19,7 @@
         </button>
       </div>
       <div class="flex flex-col w-full border border-gray-600">
-        <div class="flex cursor-pointer select-none">
+        <div class="flex flex-col md:flex-row cursor-pointer select-none hidden md:visisble">
           <span class="w-1/12 px-2 py-1 flex" @click="sortTable('id')">
             ID
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -56,20 +56,39 @@
             </svg>
           </span>
         </div>
-        <div
-          v-for="(map, i) of paginatedValue"
-          :key="i"
-          class="flex hover:bg-purple-200 dark:hover:bg-purple-800"
-          :class="i % 2 == 0 ? 'bg-gray-200 dark:bg-gray-800' : 'bg-gray-100 dark:bg-gray-900'"
-        >
-          <span class="w-1/12 px-2 py-1">{{ map.id }}</span>
-          <span class="w-3/12 px-2 py-1">{{ map.name }}</span>
-          <span class="w-2/12 px-2 py-1">{{ map.filesize.toLocaleString() }}</span>
-          <span class="w-2/12 px-2 py-1">{{ map.difficulty }} - {{ getDifficultyText(map.difficulty) }}</span>
-          <span class="w-1/12 px-2 py-1">{{ map.validated }}</span>
-          <span class="w-auto px-2 py-1">{{ map.created_on }}</span>
-          <span class="w-1/12 px-2 py-1 text-center text-blue-400"><n-link to="#">Edit</n-link></span>
+        <div>
+          <div
+            v-for="(map, i) of paginatedValue"
+            :key="i"
+            class="flex flex-col md:flex-row hover:bg-purple-200 dark:hover:bg-purple-800"
+            :class="i % 2 == 0 ? 'bg-gray-200 dark:bg-gray-800' : 'bg-gray-100 dark:bg-gray-900'"
+          >
+            <span class="md:w-1/12 px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">ID: </span>{{ map.id }}</span>
+            <span class="md:w-3/12 px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">Name: </span>{{ map.name }}</span>
+            <span class="md:w-2/12 px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">Filesize: </span>{{ map.filesize.toLocaleString() }}</span>
+            <span class="md:w-2/12 px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">Difficulty: </span>{{ map.difficulty }} - {{ getDifficultyText(map.difficulty) }}</span>
+            <span class="md:w-1/12 px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">Global: </span>{{ map.validated }}</span>
+            <span class="md:w-auto px-2 py-1 flex"><span class="md:hidden font-bold w-1/3">Created: </span>{{ map.created_on }}</span>
+            <span class="md:w-1/12 px-2 py-1 text-center text-blue-400"><n-link to="#">Edit</n-link></span>
+          </div>
         </div>
+      </div>
+      <div class="flex justify-end mx-auto text-white my-2 h-6 md:hidden">
+        <label for="count" class="text-black dark:text-white text-sm">Per page</label>
+        <select
+          id="count"
+          v-model="count"
+          class="text-black dark:text-white dark:bg-black border border-gray-600 rounded px-2 mx-2"
+          @change="saveCount"
+        >
+          <option v-for="option in countOptions" :key="option.value" :value="option.value">{{ option.text }}</option>
+        </select>
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
+          Back
+        </button>
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
+          Next
+        </button>
       </div>
     </div>
   </div>
@@ -140,9 +159,11 @@ export default Vue.extend({
   methods: {
     nextPage () {
       this.start = Math.min(this.start + this.count, this.value.length);
+      window.scrollTo(0,0);
     },
     prevPage () {
       this.start = Math.max(this.start - this.count, 0);
+      window.scrollTo(0,0);
     },
     getDifficultyText (difficulty: number) {
       return difficultyLabels[difficulty - 1];
