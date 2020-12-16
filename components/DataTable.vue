@@ -14,7 +14,7 @@
           v-for="(map, i) of paginatedValue"
           :key="i"
           class="flex hover:bg-purple-200 hover:dark:bg-purple-900"
-          :class="i % 2 == 0 ? 'bg-gray-200 dark:bg-gray-900' : 'bg-gray-100 dark:bg-gray-800'"
+          :class="i % 2 == 0 ? 'bg-gray-200 dark:bg-gray-800' : 'bg-gray-100 dark:bg-gray-900'"
         >
           <span class="w-1/12 px-2 py-1">{{ map.id }}</span>
           <span class="w-3/12 px-2 py-1">{{ map.name }}</span>
@@ -27,16 +27,15 @@
     </div>
 
     <div class="flex justify-end mx-auto text-white">
-      <span class="px-2">{{ start }} - {{ value.length }}</span>
       <dropdown
         v-model="count"
         :items="countOptions"
-        class="text-black dark:text-white"
+        class="text-black dark:text-white px-2 mx-2"
       />
-      <button type="button" class="px-2 mx-2 rounded border border-blue-200 bg-blue-600" @click="prevPage">
+      <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
         Back
       </button>
-      <button type="button" class="px-2 mx-2 rounded border border-blue-200 bg-blue-600" @click="nextPage">
+      <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
         Next
       </button>
     </div>
