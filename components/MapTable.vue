@@ -11,10 +11,10 @@
         >
           <option v-for="option in countOptions" :key="option.value" :value="option.value">{{ option.text }}</option>
         </select>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white focus:outline-none hover:bg-gray-400 dark:hover:bg-gray-700" @click="prevPage">
           Back
         </button>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white focus:outline-none hover:bg-gray-400 dark:hover:bg-gray-700" @click="nextPage">
           Next
         </button>
       </div>
@@ -83,10 +83,10 @@
         >
           <option v-for="option in countOptions" :key="option.value" :value="option.value">{{ option.text }}</option>
         </select>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="prevPage">
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700" @click="prevPage">
           Back
         </button>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white" @click="nextPage">
+        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700" @click="nextPage">
           Next
         </button>
       </div>
