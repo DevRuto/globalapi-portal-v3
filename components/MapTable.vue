@@ -19,7 +19,7 @@
         </button>
       </div>
       <div class="flex flex-col w-full border border-gray-600">
-        <div class="flex flex-col md:flex-row cursor-pointer select-none hidden md:visisble">
+        <div class="hidden md:flex flex-col md:flex-row cursor-pointer select-none">
           <span class="w-1/12 px-2 py-1 flex" @click="sortTable('id')">
             ID
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
