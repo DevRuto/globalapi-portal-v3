@@ -1,13 +1,16 @@
 <template>
   <div>
-    <form class="text-black dark:text-white mx-auto w-2/3 py-2" @change="updateFilters">
+    <form class="flex flex-col text-black dark:text-white mx-auto w-2/3 py-2" @change="updateFilters">
+      <div>
+        <input v-model="searchFilter" type="text" placeholder="Search" class="w-full h-8 text-black dark:text-white dark:bg-gray-800">
+      </div>
       <div>
         <input v-model="global" type="checkbox" name="global" class="rounded border-gray-300 text-purple-600 focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50">
         <label for="global">Global</label>
       </div>
     </form>
     <hr class="mx-auto px-2 w-full lg:w-2/3 border-gray-600">
-    <map-table v-model="maps" class="table mx-auto md:w-full" />
+    <map-table v-model="maps" class="table mx-auto md:w-full" :search-filter.sync="searchFilter" />
   </div>
 </template>
 
@@ -23,7 +26,8 @@ export default Vue.extend({
   data () {
     return {
       maps: [],
-      global: true
+      global: true,
+      searchFilter: ''
     };
   },
   mounted () {

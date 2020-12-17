@@ -118,6 +118,10 @@ export default Vue.extend({
     value: {
       type: Array,
       required: true
+    },
+    searchFilter: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -138,7 +142,7 @@ export default Vue.extend({
   computed: {
     paginatedValue (): any[] {
       console.log('[Maps pagination] Start: %i, Count: %i', this.start, this.count);
-      const maps = [...this.value];
+      let maps = [...this.value];
       if (this.sort) {
         const index = this.sort.indexOf(':');
         const col = this.sort.substring(0, index);
@@ -153,6 +157,9 @@ export default Vue.extend({
           }
           return retVal;
         });
+      }
+      if (this.searchFilter) {
+        maps = maps.filter((m: any) => m.name.includes(this.searchFilter));
       }
       return maps.slice(this.start, this.start + this.count);
     }
