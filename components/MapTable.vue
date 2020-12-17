@@ -1,9 +1,9 @@
 <template>
   <div class="min-w-screen overflow-x-visible">
     <div class="table-fixed text-black dark:text-white mx-auto my-4">
-      <div class="flex mx-auto text-white my-2 h-6 justify-end">
+      <div class="flex mx-auto text-white my-2 h-6 justify-end md:hidden">
         <div class="inline-flex">
-          <label for="count" class="text-black dark:text-white text-sm">Per page</label>
+          <label for="count" class="text-black dark:text-white text-sm mr-2">Per page</label>
           <select
             id="count"
             v-model="count"
@@ -77,22 +77,22 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-end mx-auto text-white my-2 h-6 md:hidden">
-        <label for="count" class="text-black dark:text-white text-sm">Per page</label>
+      <div class="flex justify-end mx-auto text-white my-2 h-6">
+        <label for="count" class="text-black dark:text-white text-sm mr-2">Per page</label>
         <select
           id="count"
           v-model="count"
-          class="text-black dark:text-white dark:bg-black border border-gray-600 rounded px-2 mx-2 count"
+          class="text-black dark:text-white dark:bg-black rounded-full count"
           @change="saveCount"
         >
           <option v-for="option in countOptions" :key="option.value" :value="option.value">
             {{ option.text }}
           </option>
         </select>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700" @click="prevPage">
+        <button type="button" class="px-4 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white focus:outline-none hover:bg-gray-400 dark:hover:bg-gray-700" @click="prevPage">
           Back
         </button>
-        <button type="button" class="px-2 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white hover:bg-gray-400 dark:hover:bg-gray-700" @click="nextPage">
+        <button type="button" class="px-4 mx-2 rounded border border-gray-800 dark:border-white text-black dark:text-white focus:outline-none hover:bg-gray-400 dark:hover:bg-gray-700" @click="nextPage">
           Next
         </button>
       </div>
