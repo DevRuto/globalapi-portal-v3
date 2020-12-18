@@ -10,7 +10,7 @@
       </div>
     </form>
     <hr class="mx-auto px-2 w-full lg:w-2/3 border-gray-600">
-    <map-table v-model="maps" class="table mx-auto md:w-full" :search-filter.sync="searchFilter" />
+    <map-table v-model="maps" class="lg:w-4/5 mx-auto" :search-filter.sync="searchFilter" />
   </div>
 </template>
 
@@ -49,9 +49,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style scoped>
-.table {
-  max-width: 1280px;
-}
-</style>

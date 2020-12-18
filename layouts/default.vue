@@ -6,7 +6,7 @@
       <div class="lg:flex-grow p-4">
         <Breadcrumb />
         <hr class="mx-4 border-gray-600">
-        <Nuxt class="px-4" />
+        <Nuxt class="md:px-4" />
       </div>
     </div>
   </div>
