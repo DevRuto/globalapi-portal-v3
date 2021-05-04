@@ -1,8 +1,41 @@
 <template>
-  <div>
-    <Nuxt />
-  </div>
+  <a-layout>
+    <a-layout-header id="nav-header" style="background:#fff; padding: 0">
+      <a-icon
+        class="trigger"
+        :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+        @click="collapsed = !collapsed"
+        />
+    </a-layout-header>
+    <a-layout>
+      <a-layout-sider v-model="collapsed" :collapsedWidth="0" :trigger="null" collapsible>
+        <a-menu theme="dark" mode="inline">
+          <a-sub-menu key="sub-servers">
+            <span slot="title">
+              <a-icon type="cloud-server"/>
+              <span>Servers</span>
+            </span>
+            <a-menu-item key="server-list">View All</a-menu-item>
+            <a-menu-item key="server-owned">Owned</a-menu-item>
+          </a-sub-menu>
+        </a-menu>
+      </a-layout-sider>
+      <a-layout>
+        <Nuxt/>
+      </a-layout>
+    </a-layout>
+  </a-layout>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      collapsed: false
+    };
+  }
+}
+</script>
 
 <style>
 html {
@@ -24,39 +57,15 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+#nav-header .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+#nav-header .trigger:hover {
+  color: #1890ff;
 }
 </style>
