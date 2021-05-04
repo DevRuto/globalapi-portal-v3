@@ -11,5 +11,9 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
-}
+  rules: {
+    semi: [2, 'always'],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn']
+  }
+};

@@ -1,22 +1,34 @@
 <template>
-  <a-layout>
-    <a-layout-header id="nav-header" style="background:#fff; padding: 0">
+  <a-layout style="height: 100vh">
+    <a-layout-header id="nav-header" style="padding: 0">
       <a-icon
         class="trigger"
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="collapsed = !collapsed"
       />
+      <span>GlobalAPI</span>
     </a-layout-header>
     <a-layout>
       <a-layout-sider v-model="collapsed" :collapsed-width="0" :trigger="null" collapsible>
-        <a-menu theme="dark" mode="inline">
+        <div class="logo">
+          DASHBOARD
+        </div>
+        <a-divider />
+        <a-menu theme="dark" :style="{ height: '100%', borderRight: 0 }" mode="inline">
+          <a-menu-item key="home">
+            <NuxtLink to="/">
+              Home
+            </NuxtLink>
+          </a-menu-item>
           <a-sub-menu key="sub-servers">
             <span slot="title">
               <a-icon type="cloud-server" />
               <span>Servers</span>
             </span>
             <a-menu-item key="server-list">
-              View All
+              <NuxtLink to="/servers">
+                View All
+              </NuxtLink>
             </a-menu-item>
             <a-menu-item key="server-owned">
               Owned
@@ -24,7 +36,7 @@
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
-      <a-layout>
+      <a-layout style="margin: 10px">
         <Nuxt />
       </a-layout>
     </a-layout>
@@ -36,9 +48,9 @@ export default {
   data () {
     return {
       collapsed: false
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
@@ -71,5 +83,12 @@ html {
 
 #nav-header .trigger:hover {
   color: #1890ff;
+}
+
+.logo {
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  font-size: 20px;
 }
 </style>

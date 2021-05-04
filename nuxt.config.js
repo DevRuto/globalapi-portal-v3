@@ -1,3 +1,5 @@
+import darkTheme from '@ant-design/dark-theme';
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -26,12 +28,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'ant-design-vue/dist/antd.css'
+    // 'ant-design-vue/dist/antd.css'
+    { src: 'ant-design-vue/dist/antd.less', lang: 'less' }
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/antd-ui'
+    '@/plugins/antd-ui',
+    '@/plugins/services'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -54,5 +58,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // extend(config, ctx) {},
+    extend (config, { loaders: { less } }) {
+      less.javascriptEnabled = true;
+      less.modifyVars = darkTheme;
+    }
   }
-}
+};
