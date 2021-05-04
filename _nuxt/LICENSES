@@ -1,6 +1,6 @@
 /*!
-  * vue-router v3.4.9
-  * (c) 2020 Evan You
+  * vue-router v3.5.1
+  * (c) 2021 Evan You
   * @license MIT
   */
 
@@ -9,6 +9,19 @@
  * (c) 2014-2020 Evan You
  * Released under the MIT License.
  */
+
+
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*!
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
 
 /*!
  * vue-client-only v2.0.0
@@ -21,3 +34,7 @@
  * (c) 2018-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
+
+//! moment.js
+
+//! moment.js locale configuration
