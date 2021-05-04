@@ -5,23 +5,27 @@
         class="trigger"
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="collapsed = !collapsed"
-        />
+      />
     </a-layout-header>
     <a-layout>
-      <a-layout-sider v-model="collapsed" :collapsedWidth="0" :trigger="null" collapsible>
+      <a-layout-sider v-model="collapsed" :collapsed-width="0" :trigger="null" collapsible>
         <a-menu theme="dark" mode="inline">
           <a-sub-menu key="sub-servers">
             <span slot="title">
-              <a-icon type="cloud-server"/>
+              <a-icon type="cloud-server" />
               <span>Servers</span>
             </span>
-            <a-menu-item key="server-list">View All</a-menu-item>
-            <a-menu-item key="server-owned">Owned</a-menu-item>
+            <a-menu-item key="server-list">
+              View All
+            </a-menu-item>
+            <a-menu-item key="server-owned">
+              Owned
+            </a-menu-item>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
       <a-layout>
-        <Nuxt/>
+        <Nuxt />
       </a-layout>
     </a-layout>
   </a-layout>
@@ -29,10 +33,10 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       collapsed: false
-    };
+    }
   }
 }
 </script>
