@@ -17,6 +17,7 @@
         <a-menu theme="dark" :style="{ height: '100%', borderRight: 0 }" mode="inline">
           <a-menu-item key="home">
             <NuxtLink to="/">
+              <a-icon type="home" />
               Home
             </NuxtLink>
           </a-menu-item>
