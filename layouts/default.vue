@@ -6,7 +6,7 @@
         :type="collapsed ? 'menu-unfold' : 'menu-fold'"
         @click="collapsed = !collapsed"
       />
-      <span>GlobalAPI</span>
+      <span class="logo">GlobalAPI</span>
     </a-layout-header>
     <a-layout>
       <a-layout-sider v-model="collapsed" :collapsed-width="0" :trigger="null" collapsible>
@@ -14,7 +14,7 @@
           DASHBOARD
         </div>
         <a-divider />
-        <a-menu theme="dark" :style="{ height: '100%', borderRight: 0 }" mode="inline">
+        <a-menu v-model="selectedMenuKey" :open-keys.sync="openSubKeys" theme="dark" :style="{ height: '100%', borderRight: 0 }" mode="inline">
           <a-menu-item key="home">
             <NuxtLink to="/">
               <a-icon type="home" />
@@ -26,18 +26,18 @@
               <a-icon type="cloud-server" />
               <span>Servers</span>
             </span>
-            <a-menu-item key="server-list">
+            <a-menu-item key="servers">
               <NuxtLink to="/servers">
                 View All
               </NuxtLink>
             </a-menu-item>
-            <a-menu-item key="server-owned">
+            <a-menu-item key="servers-owned">
               Owned
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
-      <a-layout style="margin: 10px">
+      <a-layout style="margin: 20px">
         <Nuxt />
       </a-layout>
     </a-layout>
@@ -48,8 +48,20 @@
 export default {
   data () {
     return {
-      collapsed: false
+      collapsed: false,
+      selectedMenuKey: ['home'],
+      openSubKeys: []
     };
+  },
+  mounted () {
+    const path = this.$route.path.substring(1).replace('/', '-');
+    this.selectedMenuKey = [path];
+    let i = path.length;
+    if (path.includes('-')) {
+      i = path.indexOf('-');
+    }
+    const root = path.substring(0, i);
+    this.openSubKeys = ['sub-' + root];
   }
 };
 </script>
@@ -92,4 +104,5 @@ html {
   text-align: center;
   font-size: 20px;
 }
+
 </style>
