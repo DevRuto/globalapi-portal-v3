@@ -6,7 +6,6 @@ export default ({ $axios }, inject) => {
     ...serverService($axios)
   };
   const methods = Object.keys(allMethods);
-  console.log(methods);
   methods.forEach((method) => {
     inject(method, allMethods[method]);
   });

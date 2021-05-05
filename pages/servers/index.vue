@@ -2,7 +2,7 @@
   <div>
     <h1>ALL SERVERS</h1>
 
-    <a-table :columns="columns" :data-source="servers">
+    <a-table row-key="id" :columns="columns" :data-source="servers">
       <span slot="ip" slot-scope="record">
         {{ record.ip }}:{{ record.port }}
       </span>
@@ -24,6 +24,11 @@
 
 <script>
 const columns = [
+  {
+    key: 'id',
+    dataIndex: 'id',
+    title: 'ID'
+  },
   {
     key: 'name',
     dataIndex: 'name',
