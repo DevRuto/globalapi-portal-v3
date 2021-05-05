@@ -2,7 +2,7 @@
   <div>
     <h1>ALL SERVERS</h1>
 
-    <a-table row-key="id" :columns="columns" :data-source="servers">
+    <a-table :loading="loading" row-key="id" :columns="columns" :data-source="servers">
       <span slot="ip" slot-scope="record">
         {{ record.ip }}:{{ record.port }}
       </span>
@@ -54,11 +54,14 @@ export default {
   data () {
     return {
       servers: [],
+      loading: true,
       columns
     };
   },
   async mounted () {
+    this.loading = true;
     this.servers = await this.$getServers();
+    this.loading = false;
   }
 };
 </script>

@@ -32,7 +32,9 @@
               </NuxtLink>
             </a-menu-item>
             <a-menu-item key="servers-owned">
-              Owned
+              <NuxtLink to="/servers/owned">
+                Owned
+              </NuxtLink>
             </a-menu-item>
           </a-sub-menu>
         </a-menu>
